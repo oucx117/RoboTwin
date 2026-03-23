@@ -256,5 +256,20 @@ OXE_NAMED_MIXTURES: Dict[str, List[Tuple[str, float]]] = {
     "aloha_stack_bowls_three_clean_builder": [
         ("aloha_stack_bowls_three_clean_builder",1.0),
     ],
+    "aloha_beat_block_hammer": [
+        ("aloha_beat_block_hammer", 1.0),
+    ],
+    "aloha_handover_block": [
+        ("aloha_handover_block", 1.0),
+    ],
+    "aloha_click_alarmclock": [
+        ("aloha_click_alarmclock", 1.0),
+    ],
+    "aloha_move_playingcard_away": [
+        ("aloha_move_playingcard_away", 1.0),
+    ],
+    "aloha_open_laptop": [
+        ("aloha_open_laptop", 1.0),
+    ],
 # fmt: on
 }

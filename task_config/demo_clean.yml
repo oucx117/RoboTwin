@@ -1,37 +1,37 @@
 # if you want to modify the config, please check the following tutorial first:
 # https://robotwin-platform.github.io/doc/usage/configurations.html
-render_freq: 0
-episode_num: 50
-use_seed: false
-save_freq: 15
-embodiment: [aloha-agilex]
-language_num: 100
-domain_randomization:
-  random_background: false
-  cluttered_table: false
-  clean_background_rate: 1
-  random_head_camera_dis: 0
-  random_table_height: 0
-  random_light: false
-  crazy_random_light_rate: 0
-camera:
-  head_camera_type: D435
-  wrist_camera_type: D435
-  collect_head_camera: true
-  collect_wrist_camera: true
-data_type:
-  rgb: true
-  third_view: false
-  depth: false
-  pointcloud: false
-  observer: false
-  endpose: true
-  qpos: true
-  mesh_segmentation: false
-  actor_segmentation: false
-pcd_down_sample_num: 1024
-pcd_crop: true
-save_path: ./data
-clear_cache_freq: 5
-collect_data: true
-eval_video_log: true
+render_freq: 0 # 渲染频率，0表示不渲染
+episode_num: 50 # 采集demo个数
+use_seed: false # 是否复用seed
+save_freq: 15 # 每隔 15 步将缓存数据写一次磁盘，防止内存爆掉
+embodiment: [aloha-agilex] # 机器人模型配置
+language_num: 100 # 为每条 demo 生成 100 条自然语言指令变体（数据增强）
+domain_randomization: # 域随机化设置（全部关闭）
+  random_background: false # 随机替换背景图
+  cluttered_table: false # 桌面加随机杂物干扰
+  clean_background_rate: 1 # 使用干净背景的概率
+  random_head_camera_dis: 0 # 头部相机距离随机偏移量
+  random_table_height: 0 # 桌面高度随机偏移量
+  random_light: false # 随机改变光照强度
+  crazy_random_light_rate: 0 # 极端随机光照的触发概率
+camera: # 相机配置
+  head_camera_type: D435 # 头部相机型号
+  wrist_camera_type: D435 # 腕部相机型号
+  collect_head_camera: true # 是否采集头部相机图像
+  collect_wrist_camera: true # 是否采集腕部相机图像
+data_type: # 采集数据类型
+  rgb: true # 是否采集RGB图像
+  third_view: false # 是否采集第三视角图像
+  depth: false # 是否采集深度图像
+  pointcloud: false # 是否采集点云图像
+  observer: false # 是否采集旁观者视角图像
+  endpose: true # 是否采集末端执行器位姿，作为动作监督信号之一（openvla-oft 使用的是 end-effector delta action（末端相对位移），所以 endpose 是核心监督信号。）
+  qpos: true # 是否采集关节角度，另一种动作表示
+  mesh_segmentation: false # 是否采集网格级分割掩码
+  actor_segmentation: false  # 是否采集 Actor 级分割掩码
+pcd_down_sample_num: 1024 # 点云下采样到 1024 个点（虽然这里不采点云，但参数保留）
+pcd_crop: true # 是否裁剪点云（虽然这里不采点云，但参数保留）
+save_path: ./data # 数据保存路径根目录，最终路径为 ./data/click_alarmclock/demo_clean/
+clear_cache_freq: 5 # 每隔 5 步清除一次缓存，防止内存爆掉
+collect_data: true # 控制是否执行阶段二（渲染采集）
+eval_video_log: true # 采集时同步录制 demo 视频，便于人工检查数据质量
