@@ -1,0 +1,34 @@
+第一步：基础环境与驱动检查
+vulkaninfo（若报错则执行: sudo apt install libvulkan1 mesa-vulkan-drivers vulkan-tools
+ffmpeg -version
+
+第二步：拉取代码
+git clone https://github.com/oucx117/RoboTwin.git
+cd RoboTwin
+
+
+第三步：安装依赖
+conda create -n RoboTwin python=3.10 -y
+conda activate RoboTwin
+bash script/_install.sh
+python script/update_embodiment_config_path.py（若遇到 Curobo 配置路径问题
+
+第四步：下载资源
+export HF_ENDPOINT=https://hf-mirror.com
+huggingface-cli login
+bash script/_download_assets.sh
+文件夹结构assets应如下所示：
+assets
+├── background_texture
+├── embodiments
+│   ├── embodiment_1
+│   │   ├── config.yml
+│   │   └── ...
+│   └── ...
+├── objects
+└── ...
+
+📊 数据采集：
+bash collect_data.sh beat_block_hammer demo_clean 0
+bash collect_data.sh beat_block_hammer demo_randomized 0
+

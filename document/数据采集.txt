@@ -1,0 +1,43 @@
+# 1. 采集 beat_block_hammer 的干净数据 (分配给 GPU 0)
+tmux new -s data_bbh_clean
+conda activate RoboTwin
+bash collect_data.sh beat_block_hammer demo_clean 0
+tmux attach -t data_bbh_clean
+
+# 2. 采集 handover_block 的干净数据 (分配给 GPU 1)
+tmux new -s data_hb_clean
+conda activate RoboTwin
+bash collect_data.sh handover_block demo_clean 1
+tmux attach -t data_hb_clean
+
+# 3. 采集 beat_block_hammer 的随机化数据 (分配给 GPU 2)
+tmux new -s data_bbh_rand
+conda activate RoboTwin
+bash collect_data.sh beat_block_hammer demo_randomized 2
+tmux attach -t data_bbh_rand
+
+# 4. 采集 handover_block 的随机化数据 (分配给 GPU 3)
+tmux new -s data_hb_rand
+conda activate RoboTwin
+bash collect_data.sh handover_block demo_randomized 3
+tmux attach -t data_hb_rand
+
+------
+
+# 5. 采集 click_alarmclock 的干净数据 (分配给 GPU 0)
+tmux new -s data_ca_clean
+conda activate RoboTwin
+bash collect_data.sh click_alarmclock demo_clean 0
+tmux attach -t data_ca_clean
+
+# 6. 采集 move_playingcard_away 的干净数据 (分配给 GPU 1)
+tmux new -s data_mpa_clean
+conda activate RoboTwin
+bash collect_data.sh move_playingcard_away demo_clean 1
+tmux attach -t data_mpa_clean
+
+# 7. 采集 open_laptop 的干净数据 (分配给 GPU 2)
+tmux new -s data_ol_clean
+conda activate RoboTwin
+bash collect_data.sh open_laptop demo_clean 2
+tmux attach -t data_ol_clean
